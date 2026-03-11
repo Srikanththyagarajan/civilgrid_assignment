@@ -19,7 +19,7 @@
   height: 100vh
 }
 
-.sidebar {  
+.sidebar {
   width: 320px;
   height: 100vh;
   background: #fff;
@@ -29,6 +29,14 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto
+}
+
+.sidebar section {
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #fafafa;
 }
 
 .mapContainer {

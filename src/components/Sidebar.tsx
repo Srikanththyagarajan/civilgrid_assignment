@@ -1,7 +1,8 @@
 import React from "react";
+import type { ChargerFeature } from "./../types/geo";
 
 interface SidebarProps {
-  chargers: any[];
+  chargers: ChargerFeature[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ chargers }) => {
@@ -12,16 +13,10 @@ const Sidebar: React.FC<SidebarProps> = ({ chargers }) => {
       {chargers.map((c, i) => {
         const [lng, lat] = c.geometry.coordinates;
         return (
-          <div key={i} style={{
-            padding: "10px",
-            marginBottom: "8px",
-            border: "1px solid #eee",
-            borderRadius: "6px",
-            background: "#fafafa"
-          }}>
-            <div><b>{c.properties.program_name || c.properties.name || `Charger ${i+1}`}</b></div>
-            <div style={{ fontSize: "12px" }}>📍 {lat.toFixed(5)}, {lng.toFixed(5)}</div>
-          </div>
+          <section key={i}>
+            <div><b>{c.properties.name || c.properties.charger_id || `Charger ${i+1}`}</b></div>
+            <div style={{ fontSize: "12px" }}> {lat.toFixed(5)}, {lng.toFixed(5)}</div>
+          </section>
         );
       })}
     </div>

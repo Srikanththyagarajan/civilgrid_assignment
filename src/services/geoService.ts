@@ -1,19 +1,13 @@
 import * as turf from "@turf/turf";
+import type { CIPFeature, ChargerFeature } from "../types/geo";
 
 export function findNearbyChargers(
-  cipFeature: any,
-  chargersGeoJSON: any,
+  cipFeature: CIPFeature,
+  chargers: { features: ChargerFeature[] },
   radiusKm: number = 0.5
 ) {
-  // create 500m buffer around CIP geometry (works for Point/LineString/Polygon)
-  const buffer = turf.buffer(cipFeature, radiusKm, { units: "kilometers" })!;
-
-  const nearby: any[] = [];
-
-  chargersGeoJSON.features.forEach((charger: any) => {
-    const inside = turf.booleanPointInPolygon(charger, buffer);
-    if (inside) nearby.push(charger);
-  });
-
+  const buffer = turf.buffer(cipFeature, radiusKm, { units: "kilometers" });
+  if (!buffer) return { nearby: [], circle: null };
+  const nearby = chargers.features.filter(charger => turf.booleanPointInPolygon(charger, buffer));
   return { nearby, circle: buffer };
 }
