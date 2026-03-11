@@ -35,4 +35,3 @@ This project is a **React + TypeScript** web application using **MapLibre GL JS*
 
 ```bash
 git clone <repo-url>
-cd ev-map
