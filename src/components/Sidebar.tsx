@@ -6,17 +6,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ chargers }) => {
   return (
-    <div style={{
-      width: "320px",
-      height: "100vh",
-      background: "#fff",
-      borderRight: "1px solid #ddd",
-      padding: "16px",
-      boxSizing: "border-box",
-      display: "flex",
-      flexDirection: "column",
-      overflowY: "auto"
-    }}>
+    <div className="sidebar">
       <h2>Nearby EV Chargers</h2>
       <div>{chargers.length} charger(s) found</div>
       {chargers.map((c, i) => {

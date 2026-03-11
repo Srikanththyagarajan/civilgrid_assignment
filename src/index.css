@@ -15,20 +15,23 @@
 
 .container {
   display: flex;
-  height: 100vh;
   width: 100vw;
+  height: 100vh
 }
 
-.sidebar {
+.sidebar {  
   width: 320px;
-  min-width: 250px;
-  max-width: 400px;
-  background: white;
+  height: 100vh;
+  background: #fff;
   border-right: 1px solid #ddd;
-  overflow-y: auto;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto
 }
 
 .mapContainer {
   flex: 1;
-  height: 100vh;
+  height: 100vh
 }

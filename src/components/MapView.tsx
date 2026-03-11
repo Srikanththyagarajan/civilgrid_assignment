@@ -172,9 +172,9 @@ export default function MapView() {
   }, []);
 
   return (
-    <div style={{ display: "flex", width: "100vw", height: "100vh" }}>
+    <div className="container">
       <Sidebar chargers={nearbyList} />
-      <div ref={mapContainer} style={{ flex: 1, height: "100vh" }} />
+      <div ref={mapContainer} className="mapContainer" />
     </div>
   );
 }
